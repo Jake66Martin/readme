@@ -4,7 +4,7 @@ const inquirer = require('inquirer');
 // TODO: Include packages needed for this application
 
 // TODO: Create an array of questions for user input
-const questions1 = [
+const questions = [
     'Please input the title of your project',
     'Please give a description of the product',
     'Please give instructions for the installation',
@@ -23,33 +23,39 @@ function init() {
   .prompt([
     {
       type: 'input',
-      message: questions1[0],
+      message: questions[0],
       name: 'projectTitle',
     },
     {
       type: 'input',
-      message: questions1[1],
+      message: questions[1],
       name: 'description',
     },
     {
       type: 'input',
-      message: questions1[2],
+      message: questions[2],
       name: 'installationInstructions',
     },
     {
         type: 'input',
-        message: questions1[3],
+        message: questions[3],
         name: 'usageInformation',
       },
       {
         type: 'input',
-        message: questions1[4],
+        message: questions[4],
         name: 'contributionGuidelines',
       },
       {
         type: 'input',
-        message: questions1[5],
+        message: questions[5],
         name: 'testInstructions',
+      },
+      {
+        type: 'list',
+        message: "Please choose one of the following licenses",
+        name: 'license',
+        choices: ["hello", "yolo", "yessir"]
       },
   ])
   .then((response) => {
