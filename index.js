@@ -10,7 +10,8 @@ const questions = [
     'Please give instructions for the installation',
     'Please enter the usage information',
     'Please enter the contribution guidelines',
-    'Please enter the test instructions'
+    'Please enter the test instructions',
+    'Please choose one of the following licenses'
 ];
 
 // TODO: Create a function to write README file
@@ -53,7 +54,7 @@ function init() {
       },
       {
         type: 'list',
-        message: "Please choose one of the following licenses",
+        message: questions[6],
         name: 'license',
         choices: ["hello", "yolo", "yessir"]
       },
@@ -66,14 +67,17 @@ function init() {
         response.usageInformation,
         response.contributionGuidelines,
         response.testInstructions,
+        response.license
     ]
-    console.log(questionAnswers)
+    // console.log(questionAnswers)
     return questionAnswers
   
 });
 
 }
 console.log("Grrrrr-eetings human. Welcome to the README generator bot. *bzz buzz* Please input information!")
-
+console.log(questionAnswers)
 // Function call to initialize app
+
 init();
+// console.log(questionAnswers)
