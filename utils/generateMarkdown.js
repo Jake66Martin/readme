@@ -19,27 +19,33 @@ function generateMarkdown(index) {
 
 
 ## Description
-
+${index.description}
 
 ## Table of Contents
-
+- Installation
+- Usage
+- License
+- Contributing
+- Tests
+- Questions
 
 ## Installation
-
+${index.installationInstructions}
 
 ## Usage
-
+${index.usageInformation}
 
 ## License
-
+${index.license}
 
 ## Contributing
-
+${index.contributionGuidelines}
 
 ## Tests
-
+${index.testInstructions}
 
 ## Questions
+${index.description}
 `;
 }
 
