@@ -1,5 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Include packages needed for this application
 
@@ -15,7 +16,14 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(response) {
+  
+fs.writeFile(`${response.projectTitle}.md`, generateMarkdown.generateMarkdown(response), (err) =>
+err ? console.error(err) : console.log('Mission success human!')
+);
+
+console.log(response)
+}
 
 // TODO: Create a function to initialize app
 function init() {
@@ -38,46 +46,44 @@ function init() {
       name: 'installationInstructions',
     },
     {
-        type: 'input',
-        message: questions[3],
-        name: 'usageInformation',
-      },
-      {
-        type: 'input',
-        message: questions[4],
-        name: 'contributionGuidelines',
-      },
-      {
-        type: 'input',
-        message: questions[5],
-        name: 'testInstructions',
-      },
-      {
-        type: 'list',
-        message: questions[6],
-        name: 'license',
-        choices: ["hello", "yolo", "yessir"]
-      },
+      type: 'input',
+      message: questions[3],
+      name: 'usageInformation',
+    },
+    {
+      type: 'list',
+      message: questions[6],
+      name: 'license',
+      choices: ["Apache-2.0", "GPL-2.0", "MIT", "MPL-2.0"]
+    },
+    {
+      type: 'input',
+      message: questions[4],
+      name: 'contributionGuidelines',
+    },
+    {
+      type: 'input',
+      message: questions[5],
+      name: 'testInstructions',
+    },
+   
   ])
   .then((response) => {
-    const questionAnswers = [
-        response.projectTitle,
-        response.description,
-        response.installationInstructions,
-        response.usageInformation,
-        response.contributionGuidelines,
-        response.testInstructions,
-        response.license
-    ]
-    // console.log(questionAnswers)
-    return questionAnswers
+    
+    writeToFile(response);
+    
+    module.exports = {response};
+
+    return response
+    
   
 });
 
 }
 console.log("Grrrrr-eetings human. Welcome to the README generator bot. *bzz buzz* Please input information!")
-console.log(questionAnswers)
+
 // Function call to initialize app
 
 init();
-// console.log(questionAnswers)
+
+
