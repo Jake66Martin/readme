@@ -82,11 +82,13 @@ function init() {
   ])
   .then((response) => {
     
+    generateMarkdown.renderLicenseBadge(response);
     writeToFile(response);
     
     module.exports = {response};
+    
 
-    return response
+    return response;
     
   
 });
