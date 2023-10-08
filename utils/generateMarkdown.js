@@ -22,30 +22,32 @@ function generateMarkdown(index) {
 ${index.description}
 
 ## Table of Contents
-- Installation
-- Usage
-- License
-- Contributing
-- Tests
-- Questions
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-## Installation
+## <h2 id = "installation">Installation</h2>
 ${index.installationInstructions}
 
-## Usage
+## <h2 id ="usage">Usage</h2>
 ${index.usageInformation}
 
-## License
+## <h2 id = "license">License</h2>
 ${index.license}
 
-## Contributing
+## <h2 id ="contributing">Contributing</h2>
 ${index.contributionGuidelines}
 
-## Tests
+## <h2 id = "tests">Tests</h2>
 ${index.testInstructions}
 
-## Questions
-${index.description}
+## <h2 id = "questions">Questions</h2>
+My Github username is ${index.githubUser}.   
+My github profile link is www.github.com/${index.githubUser}   
+You can also contact me with any further questions at ${index.email}  
 `;
 }
 

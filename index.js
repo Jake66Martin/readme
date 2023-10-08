@@ -12,7 +12,9 @@ const questions = [
     'Please enter the usage information',
     'Please enter the contribution guidelines',
     'Please enter the test instructions',
-    'Please choose one of the following licenses'
+    'Please choose one of the following licenses',
+    'Please enter your github user name',
+    'Please enter your email'
 ];
 
 // TODO: Create a function to write README file
@@ -65,6 +67,16 @@ function init() {
       type: 'input',
       message: questions[5],
       name: 'testInstructions',
+    },
+    {
+      type: 'input',
+      message: questions[7],
+      name: 'githubUser',
+    },
+    {
+      type: 'input',
+      message: questions[8],
+      name: 'email',
     },
    
   ])
