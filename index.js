@@ -2,9 +2,9 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
-// TODO: Include packages needed for this application
 
-// TODO: Create an array of questions for user input
+
+
 const questions = [
     'Please input the title of your project',
     'Please give a description of the product',
@@ -17,17 +17,17 @@ const questions = [
     'Please enter your email'
 ];
 
-// TODO: Create a function to write README file
+
 function writeToFile(response) {
   
 fs.writeFile(`${response.projectTitle}.md`, generateMarkdown.generateMarkdown(response), (err) =>
 err ? console.error(err) : console.log('Mission success human!')
 );
 
-console.log(response)
+console.log(response);
 }
 
-// TODO: Create a function to initialize app
+
 function init() {
 
     inquirer
@@ -83,6 +83,7 @@ function init() {
   .then((response) => {
     
     generateMarkdown.renderLicenseBadge(response);
+    generateMarkdown.renderLicenseLink(response);
     writeToFile(response);
     
     module.exports = {response};
@@ -96,7 +97,7 @@ function init() {
 }
 console.log("Grrrrr-eetings human. Welcome to the README generator bot. *bzz buzz* Please input information!")
 
-// Function call to initialize app
+
 
 init();
 

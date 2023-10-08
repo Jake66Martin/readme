@@ -3,31 +3,37 @@ const gpl = "[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blu
 const mit = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
 const mpl = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
 let badge;
+let link;
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+
 
 function renderLicenseBadge(response) {
   if (response.license === "Apache-2.0") {
-  return badge = apache
+  return link = "https://opensource.org/licenses/Apache-2.0";
   } else if (response.license === "GPL-2.0") {
-    return badge = gpl
+    return link = "https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html";
   } else if (response.license === "MIT") {
-    return badge = mit
+    return link = "https://opensource.org/licenses/MIT";
   } else if (response.license === "MPL-2.0") {
-    return badge = mpl
+    return link = "https://opensource.org/licenses/MPL-2.0";
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseLink(response) {
+  if (response.license === "Apache-2.0") {
+    return badge = apache;
+    } else if (response.license === "GPL-2.0") {
+      return badge = gpl;
+    } else if (response.license === "MIT") {
+      return badge = mit;
+    } else if (response.license === "MPL-2.0") {
+      return badge = mpl;
+    }
+}
 
-// TODO: Create a function to generate markdown for README
+
+
 function generateMarkdown(index) {
   return `
  # ${index.projectTitle} ${badge}
@@ -50,7 +56,9 @@ ${index.installationInstructions}
 ${index.usageInformation}
 
 ## <h2 id = "license">License</h2>
-${index.license}
+This applicaton is covered under the ${index.license} license.  
+For more information, follow the link below.     
+${link}
 
 
 ## <h2 id ="contributing">Contributing</h2>
@@ -70,5 +78,4 @@ module.exports = {
   generateMarkdown,
   renderLicenseBadge,
   renderLicenseLink,
-  renderLicenseSection
 }
