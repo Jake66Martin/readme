@@ -7,10 +7,11 @@ let disclaimer = "This applicaton is covered under "
 let linkMessage = "For more information, follow the link below."
 let link;
 
+// Above is all the required information saved in variables
 
 
-
-function renderLicenseBadge(response) {
+// This function generates the respective information link to the chosen license
+function renderLicenseLink(response) {
   if (response.license === "Apache-2.0") {
   return link = "https://opensource.org/licenses/Apache-2.0";
   } else if (response.license === "GPL-2.0") {
@@ -24,8 +25,8 @@ function renderLicenseBadge(response) {
   }
 }
 
-
-function renderLicenseLink(response) {
+// This function renders the respective badge of the chosen license
+function renderLicenseBadge(response) {
   if (response.license === "Apache-2.0") {
     return badge = apache;
     } else if (response.license === "GPL-2.0") {
@@ -39,7 +40,7 @@ function renderLicenseLink(response) {
     }
 }
 
-
+// This function renders the appropriate text within the license section
 function renderLicenseSection(response) {
   if (response.license === "Apache-2.0" || response.license === "GPL-2.0" || response.license === "MIT" || response.license === "MPL-2.0") {
   return
@@ -54,7 +55,7 @@ function renderLicenseSection(response) {
 
 
 
-
+// This function renders the markdown for the markdown file
 function generateMarkdown(index) {
   return `
  # ${index.projectTitle} ${badge}

@@ -1,10 +1,10 @@
-const fs = require('fs');
+// These are the required lines for file system/inquirer/generateMarkdown.js
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 
 
-
+// These are the questions to be answered within the prompt
 const questions = [
     'Please input the title of your project',
     'Please give a description of the product',
@@ -17,7 +17,7 @@ const questions = [
     'Please enter your email'
 ];
 
-
+// This is the function that writes the data to a markdown file
 function writeToFile(response) {
   
 fs.writeFile(`${response.projectTitle}.md`, generateMarkdown.generateMarkdown(response), (err) =>
@@ -27,7 +27,7 @@ err ? console.error(err) : console.log('Mission success human!')
 console.log(response);
 }
 
-
+// This is the function that prompts the user to respond to the questions in order to use the data
 function init() {
 
     inquirer
