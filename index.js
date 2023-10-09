@@ -56,7 +56,7 @@ function init() {
       type: 'list',
       message: questions[6],
       name: 'license',
-      choices: ["Apache-2.0", "GPL-2.0", "MIT", "MPL-2.0"]
+      choices: ["Apache-2.0", "GPL-2.0", "MIT", "MPL-2.0", "No license"]
     },
     {
       type: 'input',
@@ -84,6 +84,7 @@ function init() {
     
     generateMarkdown.renderLicenseBadge(response);
     generateMarkdown.renderLicenseLink(response);
+    generateMarkdown.renderLicenseSection(response)
     writeToFile(response);
     
     module.exports = {response};

@@ -3,7 +3,10 @@ const gpl = "[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blu
 const mit = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
 const mpl = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
 let badge;
+let disclaimer = "This applicaton is covered under "
+let linkMessage = "For more information, follow the link below."
 let link;
+
 
 
 
@@ -16,6 +19,8 @@ function renderLicenseBadge(response) {
     return link = "https://opensource.org/licenses/MIT";
   } else if (response.license === "MPL-2.0") {
     return link = "https://opensource.org/licenses/MPL-2.0";
+  } else if (response.license === "No license") {
+    link = "";
   }
 }
 
@@ -29,8 +34,24 @@ function renderLicenseLink(response) {
       return badge = mit;
     } else if (response.license === "MPL-2.0") {
       return badge = mpl;
+    } else if (response.license === "No license") {
+      badge = "";
     }
 }
+
+
+function renderLicenseSection(response) {
+  if (response.license === "Apache-2.0" || response.license === "GPL-2.0" || response.license === "MIT" || response.license === "MPL-2.0") {
+  return
+} else if (response.license === "No license") {
+  disclaimer = "No license has been chosen for this project."
+  linkMessage = "";
+  response.license = "";
+}
+
+}
+
+
 
 
 
@@ -56,8 +77,8 @@ ${index.installationInstructions}
 ${index.usageInformation}
 
 ## <h2 id = "license">License</h2>
-This applicaton is covered under the ${index.license} license.  
-For more information, follow the link below.     
+${disclaimer}${index.license}.      
+${linkMessage}      
 ${link}
 
 
@@ -78,4 +99,5 @@ module.exports = {
   generateMarkdown,
   renderLicenseBadge,
   renderLicenseLink,
+  renderLicenseSection
 }
