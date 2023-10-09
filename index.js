@@ -1,4 +1,5 @@
 // These are the required lines for file system/inquirer/generateMarkdown.js
+const fs = require('fs')
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
